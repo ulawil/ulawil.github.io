@@ -1,0 +1,122 @@
+:root {
+    --img-width: 250px;
+    --img-gap: 35px;
+    --txt-color: rgb(60, 60, 85);
+    --delay: .2s;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.my-header {
+    text-align: center;
+    padding: 1em 0 1em 0;
+    font-size: 3.5em;
+    font-weight: bold;
+    letter-spacing: .2em;
+    word-spacing: .5em;
+    color: var(--txt-color)
+}
+
+.my-nav {
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.my-nav-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my-nav-item {
+    margin: .4em 2em .4em 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.my-nav-link {
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: .1em;
+    word-spacing: .3em;
+    color: var(--txt-color);
+}
+
+.img-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 260px);
+    gap: var(--img-gap);
+    justify-content: center;
+    margin-bottom: var(--img-gap)
+}
+
+.img-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--img-gap);
+}
+
+.my-img {
+    width: 250px;
+    margin: 5px;
+    box-shadow: 4px 4px 4px  rgba(60, 60, 85, .66);
+    transition: width var(--delay), margin var(--delay), box-shadow var(--delay);
+}
+
+.my-img:hover {
+    width: 260px;
+    margin: 0;
+    box-shadow: 8px 8px 8px  rgba(60, 60, 85, .66);
+}
+
+.modal-bg {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.modal-img {
+    margin: auto;
+    display: block;
+    height: 100vh;
+    width: auto;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+@media only screen and (min-width: 635px){
+    .img-grid {
+        grid-template-columns: repeat(2, 260px);
+    }
+}
+
+@media only screen and (min-width: 920px){
+    .img-grid {
+        grid-template-columns: repeat(3, 260px);
+    }
+    .my-nav-item {
+        display: inline;
+    }
+}
